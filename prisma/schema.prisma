@@ -1,0 +1,38 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Questionnaire {
+  id String @id @default(cuid())
+
+  denomination_sociale String
+  adresse_facturation  String
+  complement_adresse   String?
+
+  code_postal String
+  ville       String
+
+  siren String @unique
+  tva   String
+
+  plateforme String
+
+  format_identifiant String
+
+  routing_siret_code        String?
+  routing_siret_description String?
+
+  routing_suffixe_code        String?
+  routing_suffixe_description String?
+
+  routing_id_code        String?
+  routing_id_description String?
+
+  contact_nom_prenom   String
+  contact_adresse_email String
+}
