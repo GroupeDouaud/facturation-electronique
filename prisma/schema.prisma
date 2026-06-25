@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -8,7 +8,7 @@ generator client {
 }
 
 model Questionnaire {
-  id String @id @default(cuid())
+  id Int @id @default(autoincrement())
 
   denomination_sociale String
   adresse_facturation  String
@@ -33,6 +33,8 @@ model Questionnaire {
   routing_id_code        String?
   routing_id_description String?
 
-  contact_nom_prenom   String
+  contact_nom_prenom    String
   contact_adresse_email String
+
+  createdAt DateTime @default(now())
 }
