@@ -330,7 +330,23 @@ export default function QuestionnairePage() {
                 </label>
 
                 {selectedFormat === "SIREN + SIRET + ID de routage" && (
-                  <div className="ml-7 border-l-2 border-orange-200 pl-5">
+                  <div className="ml-7 space-y-3 border-l-2 border-orange-200 pl-5">
+                    {/* SIRET */}
+                    <div className="grid grid-cols-2 gap-3">
+                      <input
+                        {...register("routing_siret_code")}
+                        placeholder="Code SIRET"
+                        className="h-11 rounded-xl border border-gray-200 px-4 text-gray-900 outline-none focus:border-black placeholder:text-gray-600"
+                      />
+
+                      <input
+                        {...register("routing_siret_description")}
+                        placeholder="Description du type de facturation"
+                        className="h-11 rounded-xl border border-gray-200 px-4 text-gray-900 outline-none focus:border-black placeholder:text-gray-600"
+                      />
+                    </div>
+
+                    {/* ID de routage */}
                     <div className="grid grid-cols-2 gap-3">
                       <input
                         {...register("routing_id_code")}
