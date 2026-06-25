@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Questionnaire" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "denomination_sociale" TEXT NOT NULL,
     "adresse_facturation" TEXT NOT NULL,
     "complement_adresse" TEXT,
@@ -18,7 +18,9 @@ CREATE TABLE "Questionnaire" (
     "routing_id_description" TEXT,
     "contact_nom_prenom" TEXT NOT NULL,
     "contact_adresse_email" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Questionnaire_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
